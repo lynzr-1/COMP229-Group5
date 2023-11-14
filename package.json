@@ -1,9 +1,9 @@
 {
-  "name": "mern_skeleton",
+  "name": "8_bit_bazaar",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
-  "author": "Blessing",
+  "author": "Fusion Factory",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.22.5",

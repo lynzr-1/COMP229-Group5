@@ -10,7 +10,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const isActive = (location, path) => {
   return location.pathname === path
-    ? { color: "#ff4081" }
+    ? { color: "#00acb8" }
     : { color: "#ffffff" };
 };
 export default function Menu() {
