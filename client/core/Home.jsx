@@ -5,11 +5,11 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import homesplashImg from "./../assets/images/8BitBazaar-Splash_400px.png";
-import { listLatest } from "./../product/api-product.js";
+import { listLatestHome } from "./../product/api-product.js";
 import LatestProducts from "./../core/LatestProducts";
 import { list } from "./../shop/api-shop.js";
 import FeaturedShops from "./../core/FeaturedShops";
-import FusionFactoryLogo from "./../assets/images/FusionFactoryLogo_100px.png";
+import FusionFactoryLogo from "./../assets/images/FusionFactoryLogo_100px_white.png";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -42,7 +42,7 @@ export default function Home() {
     const signal = abortController.signal;
 
     // Fetch latest products
-    listLatest(signal)
+    listLatestHome(signal)
       .then((productData) => {
         if (productData.error) {
           setError(productData.error);
@@ -69,9 +69,6 @@ export default function Home() {
   return (
     <div>
       <Card className={classes.card}>
-        <Typography variant="h6" className={classes.title}>
-          {/* Welcome to 8-Bit Bazaar */}
-        </Typography>
         <CardMedia
           className={classes.media}
           image={homesplashImg}
@@ -81,17 +78,38 @@ export default function Home() {
       </Card>
       <LatestProducts products={data.products} />
       <FeaturedShops shops={data.shops} />
-      <Card className={classes.card} style={{ textAlign: 'center' }}>
-      <div style={{ display: 'inline-block', textAlign: 'left' }}>
-      <img src={FusionFactoryLogo} alt="Fusion Factory Logo" style={{ verticalAlign: 'middle', marginRight: '10px', width: '200px', height: 'auto' }} />
-        <Typography variant="body2" component="p" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-          <center>
-            Copyright 2023 - 8-Bit Bazaar by Fusion Factory - Brayden Bouchard,
-            Marcus Charles, Vincent Chen, Lyndsay Riches, Sarah Shields and
-            Samantha Shirley
-          </center>
+      <Card
+        className={classes.card}
+        style={{
+          textAlign: "center",
+          backgroundColor: "#200047",
+          color: "#ffffff",
+          padding: "10px",
+        }}
+      >
+        <img
+          src={FusionFactoryLogo}
+          alt="Fusion Factory Logo"
+          style={{
+            verticalAlign: "middle",
+            marginRight: "10px",
+            width: "150px",
+            height: "auto",
+          }}
+        />
+        <Typography
+          variant="body2"
+          component="p"
+          style={{
+            display: "inline-block",
+            verticalAlign: "middle",
+            textAlign: "center",
+          }}
+        >
+          &copy; 2023 8-Bit Bazaar by Fusion Factory - Brayden Bouchard, Marcus
+          Charles, Vincent Chen, Lyndsay Riches, Sarah Shields and Samantha
+          Shirley
         </Typography>
-        </div>
       </Card>
     </div>
   );
